@@ -1,0 +1,72 @@
+
+
+// ///////////////------super exemple------////////////////////
+
+// function hello (){
+//   console.log('Hello', this);
+// };
+
+// const person = {
+//   name: 'Serghei',
+//   age: 45,
+//   sayHello: hello,
+//   sayHelloWindow: hello.bind(document),
+//   logInfo: function (job, phone) {
+//     console.group(`${this.name} info:`);
+//     console.log(`Name is: ${this.name}`);
+//     console.log(`Age is: ${this.age}`);
+//     console.log(`Job is ${job}`);
+//     console.log(`Phone is ${phone}`)
+//     console.groupEnd();
+//   }
+// };
+
+// const ina =  {
+//   name: 'Ina',
+//   age: 35,
+// }
+
+// // person.sayHello();
+// // person.sayHelloWindow();
+
+// // ---metod   BIND ---- создает новую функцию и мьі можем вьізвать ее когда захотим ...........
+// person.logInfo();
+// person.logInfo.bind(ina)();
+// // const fnInaInfo = person.logInfo.bind(ina);
+// // fnInaInfo('accounting', '0380111222333');
+
+// // const fnInaInfo = person.logInfo.bind(ina, 'accounting', '0380111222333');
+
+// // -----вьізов функции с методом BIND.........
+// // fnInaInfo();
+
+// person.logInfo.bind(ina, 'accounting', '0380111222333')();
+
+// // metod ---- CALL и APPLY вьізьівает сразу.......
+
+// person.logInfo.call(ina, 'accounting', '0380111222333');
+// person.logInfo.apply(ina, ['accounting', '0380111222333']);
+
+
+//  ////////===== другая задачка =================
+
+// вариант 1 задачки
+
+const array = [1,2,3,4,5];
+
+// function multiBy(arr, n) {
+//   return arr.map(i => (i * n))
+// }
+
+// console.log(multiBy(array, 15));
+
+// вариант 2 задачки
+
+
+Array.prototype.multiBy = function (n) {
+  console.log('multiBy this is :', this);
+  // здесь THIS внутри стрелочной функции B другой функции....
+  return this.map(i => (i * n));
+}
+array.multiBy(2);
+console.log(array.multiBy(20));
