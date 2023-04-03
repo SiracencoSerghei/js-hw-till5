@@ -1,5 +1,5 @@
 // function fnA(parameter) {
-//   const innerVariable = `значение внтуренней переменной функции fnA`;
+//   const innerVariable = `значение внутренней переменной функции fnA`;
 //   function innerFunction() {
 //     console.log(innerVariable);
 //     console.log(parameter);
@@ -12,7 +12,7 @@
 // fnB();
 // console.log(fnA(555));
 
-// sheff
+// sheff  ===========================================
 
 // function DishSheff(name, dish) {
 //   console.log("лог DishSheff");
@@ -32,36 +32,42 @@
 // const nikita = makeSheff("Никита");
 // nikita("суп");
 
-// // округлятор
+// // округлятор   ===============================
 
 // function rounder(places) {
+//   console.log(places);
 //   return function (number) {
+//     console.log(number)
 //     return Number(number.toFixed(places));
 //   };
 // }
 
-// const rounder1 = rounder(1);
+// // const rounder1 = rounder(1);
 // const rounder4 = rounder(4);
-// console.log(rounder1(3.6), rounder4(3.12345678));
+// // console.log(rounder1(3.6));
+// console.log(rounder4(3.12345678))
 
-// private variables
+// const rounder5 = rounder(5)
+// console.log(rounder5(5.123456))
 
-// function myLibFactory() {
-//   let value = 0;
-//   function add(num) {
-//     value += num;
-//   }
-//   function getValue() {
-//     return value;
-//   }
-//   return {
-//     add,
-//     getValue,
-//   };
-// }
-// const myLib = myLibFactory();
-// console.log(myLib.add(10), myLib.getValue());
-// console.dir(myLib);
+// private variables   ============================
+
+function myLibFactory() {
+  let value = 0;
+  function add(num) {
+    value += num;
+  }
+  function getValue() {
+    return value;
+  }
+  return {
+    add,
+    getValue,
+  };
+}
+const myLib = myLibFactory();
+console.log(myLib.add(10), myLib.getValue());
+console.dir(myLib);
 
 //
 // function salaryManagerFactory(employeeName, baseSalary) {
@@ -83,34 +89,34 @@
 // console.log(salaryManager.current());
 
 // Замыкания это по сути функция внутри другой функции
-function createCalcFunction(n) {
-  return function () {
-    console.log(100 * n);
-  };
-}
-createCalcFunction(42); // не получим ничего, так как эта функция будет возвращать другую функцию
+// function createCalcFunction(n) {
+//   return function () {
+//     console.log(100 * n);
+//   };
+// }
+// createCalcFunction(42); // не получим ничего, так как эта функция будет возвращать другую функцию
 
-const calc = createCalcFunction(42); // заносим результат выполнения функции в переменную.
-console.log(calc); // ƒ () {
+// const calc = createCalcFunction(42); // заносим результат выполнения функции в переменную.
+// console.log(calc); // ƒ () {
 //   console.log(100 * n);
 // } получаем результат выполнения функции createCalcFunction. Все параметры и переменные, обьявленные в главной функции будут доступны в замыкающей функции.
 
-calc(); // когда мы вызываем функцию, которая была получена в результате другой функции,
+// calc(); // когда мы вызываем функцию, которая была получена в результате другой функции,
 
-function createIncrementor(n) {
-  return function (num) {
-    return n + num;
-  };
-}
-const addOne = createIncrementor(1);
-const addTen = createIncrementor(10);
-console.log(addOne(10));
-console.log(addTen(90));
+// function createIncrementor(n) {
+//   return function (num) {
+//     return n + num;
+//   };
+// }
+// const addOne = createIncrementor(1);
+// const addTen = createIncrementor(10);
+// console.log(addOne(10));
+// console.log(addTen(90));
 
-function urlGenerator(domain) {
-  return function (url) {
-    return `https://${url.toLowerCase().split(" ").join("-")}.${domain}`;
-  };
-}
-const comUrl = urlGenerator("com");
-const uaUrl = urlGenerator("ua");
+// function urlGenerator(domain) {
+//   return function (url) {
+//     return `https://${url.toLowerCase().split(" ").join("-")}.${domain}`;
+//   };
+// }
+// const comUrl = urlGenerator("com");
+// const uaUrl = urlGenerator("ua");
